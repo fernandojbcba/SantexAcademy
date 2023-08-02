@@ -85,5 +85,13 @@ models.sequelize.authenticate()
     logger.api.error(err);
   });
 
+// Aquí se configura el puerto
+const port = process.env.PORT || 3000; // si no está configurado uso el port 3000
+
 app.use('/', routes);
+// La aplicación escucha en el puerto configurado
+app.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
+});
+
 module.exports = app;

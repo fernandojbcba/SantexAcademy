@@ -31,6 +31,17 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
+// Importar los modelos Course, Role y User como clases
+const Role = require('./role')(sequelize, Sequelize.DataTypes);
+const User = require('./user')(sequelize, Sequelize.DataTypes);
+const Course = require('./course')(sequelize, Sequelize.DataTypes);
+// const UserCourse = require('./usercourse')(sequelize, Sequelize.DataTypes);
+
+// Asociar los modelos Course, Role y User al objeto db
+db.Role = Role;
+db.User = User;
+db.Course = Course;
+// db.UserCourse = UserCourse;
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
